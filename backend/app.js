@@ -16,28 +16,10 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/hotel_db', {
+mongoose.connect('mongodb://localhost:27017/hotels_db', {
   useNewUrlParser: true,
 });
 
-hotels = [
-  {
-  _id: 12345,
-  'Сайты': 'vk.com/bellagio386799',
-  'Название': 'BELLAGIO KAFE|BAR',
-  'Описание': 'балалалалалал',
-  'Телефон': '3034903402203',
-  },
-  {
-    _id: 12346,
-    'Сайты': 'vk.com/bellagio386799',
-    'Название': 'BELLAGIO KAFE|BAR',
-    'Описание': 'баdfdfdfdfdfdfалал',
-    'Телефон': '2323232-30-203',
-    },
-
-]
-  
 
 
 app.use(express.json());// for parsing application/json

@@ -4,9 +4,13 @@ const validator = require('validator');
 // экспортируем его
 module.exports = router;
 
-const {
-  getCards
-} = require('../controllers/cards');
+const Card = require('../models/card');
+
+module.exports.getCards = (req, res, next) => {
+  Card.find({})
+    .then((cards) => res.send(cards))
+    .catch(next);
+};
 
 const validateURL = (value) => {
   if (!validator.isURL(value, { require_protocol: true })) {
@@ -16,6 +20,6 @@ const validateURL = (value) => {
 };
 
 
-router.get('/cards', getCards);
+router.get('/', getCards);
 
 
